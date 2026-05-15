@@ -4,7 +4,6 @@ metadata:
   labels:
     app: sankar
   name: sankar
-  namespace: sankarpower
 spec:
   replicas: 1
   selector:
