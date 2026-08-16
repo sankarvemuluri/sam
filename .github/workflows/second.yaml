@@ -14,11 +14,11 @@ jobs:
                 sudo apt-get update 
                 sudo apt install cowsay -y
                 cowsay -f dragon "run here" >> dragon.txt
-            - name: upload artifacts
-              uses: actions/upload-artifact@v7
-              with:
-                name: artifact_dragon
-                path: dragon.txt
+             - name: upload artifacts
+               uses: actions/upload-artifact@v7
+               with:
+                 name: artifact_dragon
+                 path: dragon.txt
     second_build:
              runs-on: ubuntu-latest
              needs: [first_job]
