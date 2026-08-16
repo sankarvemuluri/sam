@@ -13,10 +13,11 @@ jobs:
                 pwd
                 sudo apt-get update 
                 sudo apt install cowsay -y
+                cowsay -f dragon "run here" >> dragon.txt
     second_build:
              runs-on: ubuntu-latest
              needs: [first_job]
              steps:
              - name: check cowsay
-               run: cowsay -f dragon "run here" >> dragon.txt
+               run: cat dragon.txt
             
