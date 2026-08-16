@@ -11,4 +11,6 @@ jobs:
                 echo "This Is My second Message"
                 ls
                 pwd
+                sudo apt-get update 
+                sudo apt install cowsay -y
             
