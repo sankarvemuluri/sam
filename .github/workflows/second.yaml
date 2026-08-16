@@ -7,7 +7,8 @@ jobs:
              - name: checkout the repo
                uses: actions/checkout@v7
              - name: Welcome Message
-               run: echo "This Is My second Message"
-             - name: listing all files
-               run: ls
-
+               run: | 
+                echo "This Is My second Message"
+                ls
+                pwd
+            
