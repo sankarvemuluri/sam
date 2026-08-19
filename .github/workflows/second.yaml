@@ -1,33 +1,8 @@
-name: My second workflow
+name: CI
 on: push
-jobs: 
-    first_job:
-             runs-on: ubuntu-latest
-             steps:
-             - name: checkout the repo
-               uses: actions/checkout@v7
-             - name: Welcome Message
-               run: | 
-                echo "This Is My second Message"
-                ls
-                pwd
-                sudo apt-get update 
-                sudo apt install cowsay -y
-                cowsay -f dragon "run here" >> dragon.txt
-             - name: upload artifacts
-               uses: actions/upload-artifact@v7
-               with:
-                 name: artifact_dragon
-                 path: dragon.txt
-    second_build:
-             runs-on: ubuntu-latest
-             needs: [first_job]
-             steps:
-             - name: download artifact
-               uses: actions/download-artifact@v7
-               with:
-                 name: artifact_dragon
-             - name: check cowsay
-               run: cat dragon.txt
-             
-            
+jobs:
+  prod-check:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying to production server on branch $GITHUB_REF"
